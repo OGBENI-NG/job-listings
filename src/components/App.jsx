@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import data from '../../data.json'
+import data from '../../data'
 import bgHeaderDsk from '../images/bg-header-desktop.svg'
 import bgHeaderMob from '../images/bg-header-mobile.svg'
 import removeIcon from '../images/icon-remove.svg'
