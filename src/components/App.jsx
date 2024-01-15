@@ -8,23 +8,32 @@ import Main from './JobListing'
 
 export default function App() {
 
-  const [selectedLanguage, setSelectedLanguage] = useState(null);
-  const [selectedTool, setSelectedTool] = useState(null);
+  const [showFilterJob, setShowFilterJob] = useState(false);
   const [filterLanguage, setFilterLanguage] = useState([]);
 
   const handleLanguageClick = (language) => {
     // Check if the language already exists in the filterLanguage array
+    setShowFilterJob(true)
     if (!filterLanguage.includes(language)) {
       setFilterLanguage((prevFilterLang) => [...prevFilterLang, language]);
     }
+   
   };
   
   function handleDeleteLang(language) {
     setFilterLanguage((prevFilterLang) => prevFilterLang.filter(lang => lang !== language));
+    // Check if filterLanguage is empty after removing the language
+    if (filterLanguage.length === 1) {
+      setShowFilterJob(false);
+    }
   }
+
   function handleClearFilterJob() {
     setFilterLanguage([])
+    setShowFilterJob(false)
   }
+
+ 
   
   return (
     <div className='bg-light-grayish-cyan-bg font-sans text-default'>
@@ -39,6 +48,7 @@ export default function App() {
         removeIcon={removeIcon}
         handleDeleteLang={handleDeleteLang}
         handleClearFilterJob={handleClearFilterJob}
+        showFilterJob={showFilterJob}
       />
     </div>
   )

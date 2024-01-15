@@ -2,12 +2,12 @@ import React from 'react'
 import Button from './Buttons'
 
 export default function Main({data, handleLanguageClick, filterLanguage, removeIcon, 
-  handleDeleteLang, handleClearFilterJob}) {
+  handleDeleteLang, handleClearFilterJob, showFilterJob}) {
 
   const jobsData = data.map(item => (
     <div 
       key={item.id}
-      className={` bg-white my-12 p-4 rounded-lg shadow-md shadow-light-grayish-cyan-filter 
+      className={` bg-white my-14 p-4 rounded-lg shadow-md shadow-light-grayish-cyan-filter 
       ${item.featured && item.new && "border-l-[5px] border-dark-cyan"}`}
     >
       <div className='w-14 -mt-11'>
@@ -61,8 +61,8 @@ export default function Main({data, handleLanguageClick, filterLanguage, removeI
     </div>
   ))
   return (
-    <main className='p-5'>
-      <section className='bg-white p-4 flex gap-3 rounded-lg'>
+    <main className='p-5 transition'>
+      {showFilterJob ? (<section className={`bg-white p-4 flex gap-3 rounded-lg -mt-14 relative z-[1]`}>
         <div className='flex flex-wrap gap-5'>
           {filterLanguage.map((language) => (
             <div key={language} className='flex items-center'>
@@ -71,9 +71,10 @@ export default function Main({data, handleLanguageClick, filterLanguage, removeI
               >
                 {language}
               </span>
-              <div className='bg-dark-cyan p-[.69rem] rounded-r-[5px]'>
+              <div 
+                onClick={() => handleDeleteLang(language)}
+                className='bg-dark-cyan p-[.69rem] rounded-r-[5px]'>
                 <img 
-                  onClick={() => handleDeleteLang(language)} 
                   className='h-full w-full ' 
                   src={removeIcon} alt="remove-icon" 
                 />
@@ -85,8 +86,10 @@ export default function Main({data, handleLanguageClick, filterLanguage, removeI
           onClick={() => handleClearFilterJob()} 
           className='ml-auto self-center font-big text-lg text-dark-grayish-cyan'
         >Clear</span>
+      </section>) : ""}
+      <section className='pt-4'>
+        {jobsData}
       </section>
-      <section>{jobsData}</section>
     </main>
   )
 }
