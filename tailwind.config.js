@@ -12,6 +12,7 @@ export default {
         'light-grayish-cyan-filter': 'hsl(180, 31%, 95%)',
         'dark-grayish-cyan': 'hsl(180, 8%, 52%)',
         'very-dark-grayish-cyan': 'hsl(180, 14%, 20%)',
+        'box-shadow' : 'hsla(180, 29%, 50%, 0.395)'
       },
       fontSize: {
         'default': '15px',

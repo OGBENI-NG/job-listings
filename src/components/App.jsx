@@ -1,19 +1,27 @@
-import React, {useState} from 'react'
-import data from '../../data'
-import bgHeaderDsk from '../images/bg-header-desktop.svg'
-import bgHeaderMob from '../images/bg-header-mobile.svg'
-import removeIcon from '../images/icon-remove.svg'
-import Header from './Header'
-import Main from './JobListing'
+import React, {useState} from 'react';
+import data from '../../data';
+import bgHeaderDsk from '../images/bg-header-desktop.svg';
+import bgHeaderMob from '../images/bg-header-mobile.svg';
+import removeIcon from '../images/icon-remove.svg';
+import Header from './Header';
+import Main from './JobListing';
 
 export default function App() {
 
   const [showFilterJob, setShowFilterJob] = useState(false);
   const [filterLanguage, setFilterLanguage] = useState([]);
 
+  // If there are selected languages, filter the jobs
+  const filteredJobs = filterLanguage.length > 0
+  ? data.filter((item) => {
+      const filterJob = [...item.languages, ...item.tools, item.role, item.level];
+      return filterLanguage.some((lang) => filterJob.includes(lang));
+    })
+  : data;
+
   const handleLanguageClick = (language) => {
     // Check if the language already exists in the filterLanguage array
-    setShowFilterJob(true)
+    setShowFilterJob(true);
     if (!filterLanguage.includes(language)) {
       setFilterLanguage((prevFilterLang) => [...prevFilterLang, language]);
     }
@@ -29,8 +37,8 @@ export default function App() {
   }
 
   function handleClearFilterJob() {
-    setFilterLanguage([])
-    setShowFilterJob(false)
+    setFilterLanguage([]);
+    setShowFilterJob(false);
   }
 
  
@@ -49,6 +57,7 @@ export default function App() {
         handleDeleteLang={handleDeleteLang}
         handleClearFilterJob={handleClearFilterJob}
         showFilterJob={showFilterJob}
+        filteredJobs={filteredJobs}
       />
     </div>
   )
