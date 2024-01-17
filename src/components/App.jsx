@@ -50,21 +50,23 @@ export default function App() {
 
  
   return (
-    <div className='bg-light-grayish-cyan-bg font-sans text-default h-screen overflow-x-hidden'>
+    <div className='bg-light-grayish-cyan-bg font-sans text-default'>
+     <div className='overflow-x-hidden h-screen'>
       <Header 
         bgHeaderDsk={bgHeaderDsk}
         bgHeaderMob={bgHeaderMob}
-      />
-      <Main
-        data={data}
-        handleLanguageClick={handleLanguageClick}
-        filterLanguage={filterLanguage}
-        removeIcon={removeIcon}
-        handleDeleteLang={handleDeleteLang}
-        handleClearFilterJob={handleClearFilterJob}
-        showFilterJob={showFilterJob}
-        filteredJobs={filteredJobs}
-      />
+        />
+        <Main
+          data={data}
+          handleLanguageClick={handleLanguageClick}
+          filterLanguage={filterLanguage}
+          removeIcon={removeIcon}
+          handleDeleteLang={handleDeleteLang}
+          handleClearFilterJob={handleClearFilterJob}
+          showFilterJob={showFilterJob}
+          filteredJobs={filteredJobs}
+        />
+     </div>
     </div>
   )
 }
