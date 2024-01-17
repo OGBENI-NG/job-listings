@@ -50,8 +50,8 @@ export default function App() {
 
  
   return (
-    <div className='bg-light-grayish-cyan-bg font-sans text-default'>
-     <div className='overflow-x-hidden h-screen'>
+    <div className='bg-light-grayish-cyan-bg font-sans text-default pb-12'>
+    
       <Header 
         bgHeaderDsk={bgHeaderDsk}
         bgHeaderMob={bgHeaderMob}
@@ -66,7 +66,6 @@ export default function App() {
           showFilterJob={showFilterJob}
           filteredJobs={filteredJobs}
         />
-     </div>
     </div>
   )
 }
