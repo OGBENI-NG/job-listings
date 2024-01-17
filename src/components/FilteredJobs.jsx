@@ -21,10 +21,12 @@ export default function FilteredJobs({filteredJobs, handleLanguageClick}) {
               <div className='flex items-center gap-4 py-3 md:py-5 lg:p-0'>
                 <p className='font-big text-xl md:text-3xl lg:text-lg text-dark-cyan'>{item.company}</p>
                 <div className='flex items-center gap-2 font-mdm md:text-xl lg:text-default lg:leading-none'>
-                  <p className={`${item.new && "bg-dark-cyan px-2 pt-1 md:px-4 md:pt-[4px] lg:p-[4px] lg:px-2 lg:pt-[8px] rounded-full text-white"}`}>
+                  <p className={`${item.new && `bg-dark-cyan px-2 pt-1 md:px-4 md:pt-[4px] 
+                    lg:p-[4px] lg:px-2 lg:pt-[8px] rounded-full text-white`}`}
+                  >
                     {item.new ? "NEW!" : ""}</p>
-                  <p className={`${item.featured && `bg-very-dark-grayish-cyan m-0 text-white px-2 lg:p-[4px]  lg:pt-[8px] lg:px-3
-                    pt-1 md:px-4 md:pt-[5px]  rounded-full`}`}>
+                  <p className={`${item.featured && `bg-very-dark-grayish-cyan m-0 text-white px-2 lg:p-[4px] 
+                   lg:pt-[8px] lg:px-3 pt-1 md:px-4 md:pt-[5px]  rounded-full`}`}>
                     {item.featured ? "FEATURED" : ""}</p>
                 </div>
               </div>
