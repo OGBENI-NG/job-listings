@@ -50,7 +50,7 @@ export default function App() {
 
  
   return (
-    <div className='bg-light-grayish-cyan-bg font-sans text-default'>
+    <div className='bg-light-grayish-cyan-bg font-sans text-default h-screen overflow-x-hidden'>
       <Header 
         bgHeaderDsk={bgHeaderDsk}
         bgHeaderMob={bgHeaderMob}

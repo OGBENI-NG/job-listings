@@ -8,11 +8,11 @@ export default function Main({
   }) {
 
   return (
-    <main className='p-5 md:p-12 lg:px-16 xl:px-40 xxl:px-44 transition'>
+    <main className='p-5 md:p-12 lg:px-16 xl:px-40 lg:pt-4 xxl:px-44 transition'>
       {showFilterJob && 
         (<section 
           className={`bg-white p-4 md:p-8 flex gap-4 rounded-lg -mt-14 relative 
-          z-[1] shadow-2xl shadow-box-shadow md:-mt-[5.5rem] lg:p-6 xl:px-8 xxl:px-10`}
+          z-[1] shadow-2xl shadow-box-shadow md:-mt-[5.5rem] lg:-mt-[3.8rem] lg:p-6 xl:px-8 xxl:px-10`}
         >
         <div className='flex flex-wrap gap-4 md:gap-6 lg:gap-4'>
           {filterLanguage.map((language) => (
